@@ -65,4 +65,4 @@ mosoo 提供统一 runtime 契约，不是 Dify 模型供应商。当前公开 r
 
 任务会发送给 mosoo；已配置 Agent 可能调用远程模型、工具、MCP、网络或在沙箱内执行命令。发布 Agent 前请检查这些能力。插件自身没有持久化存储或分析埋点，详见 [PRIVACY.md](../PRIVACY.md)。
 
-源码：[mosoo-ai/dify-plugin-mosoo](https://github.com/mosoo-ai/dify-plugin-mosoo) · 文档：[mosoo.ai/docs](https://mosoo.ai/docs/) · 支持：[GitHub Issues](https://github.com/mosoo-ai/dify-plugin-mosoo/issues) · 联系：[business@dify.ai](mailto:business@dify.ai)
+源码：[mosoo-ai/dify-plugin-mosoo](https://github.com/mosoo-ai/dify-plugin-mosoo) · 文档：[mosoo.ai/docs](https://mosoo.ai/docs/) · 支持：[GitHub Issues](https://github.com/mosoo-ai/dify-plugin-mosoo/issues) · 联系：[cyefan2@gmail.com](mailto:cyefan2@gmail.com)

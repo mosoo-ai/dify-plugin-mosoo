@@ -1,4 +1,4 @@
-version: 0.1.0
+version: 0.1.1
 type: plugin
 author: mosoo-ai
 name: mosoo
@@ -32,5 +32,5 @@ meta:
 created_at: 2026-08-11T00:00:00Z
 privacy: PRIVACY.md
 repo: https://github.com/mosoo-ai/dify-plugin-mosoo
-contact: business@dify.ai
+contact: cyefan2@gmail.com
 verified: false
