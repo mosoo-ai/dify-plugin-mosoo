@@ -65,4 +65,4 @@ Source: [Agent Client Protocol Registry](https://agentclientprotocol.com/get-sta
 
 Tasks are sent to mosoo and may cause the configured Agent to use remote models, tools, MCP servers, network access, or sandboxed command execution. Review the Agent before publishing it. The plugin has no storage or analytics; see [PRIVACY.md](./PRIVACY.md).
 
-Source: [mosoo-ai/dify-plugin-mosoo](https://github.com/mosoo-ai/dify-plugin-mosoo) · Docs: [mosoo.ai/docs](https://mosoo.ai/docs/) · Support: [GitHub issues](https://github.com/mosoo-ai/dify-plugin-mosoo/issues) · Contact: [business@dify.ai](mailto:business@dify.ai)
+Source: [mosoo-ai/dify-plugin-mosoo](https://github.com/mosoo-ai/dify-plugin-mosoo) · Docs: [mosoo.ai/docs](https://mosoo.ai/docs/) · Support: [GitHub issues](https://github.com/mosoo-ai/dify-plugin-mosoo/issues) · Contact: [cyefan2@gmail.com](mailto:cyefan2@gmail.com)
