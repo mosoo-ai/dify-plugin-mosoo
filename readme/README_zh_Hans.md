@@ -37,29 +37,15 @@
 
 `timeout_seconds` 默认 120 秒（范围 10-240）。插件把 Dify runtime user 映射到 mosoo `userId`，并拒绝继续其他 Dify 用户的 Thread。返回 `waiting_input` 时，请先在 mosoo 处理权限或输入，再只带 `thread_id` 调用。
 
-## Runtime 与模型检索索引
+## 支持的 runtime
 
-mosoo 提供统一 runtime 契约，不是 Dify 模型供应商。当前公开 runtime 为 **Claude Agent SDK**、**OpenAI Runtime** 和 **OpenCode**（ACP fallback）。当前 [mosoo runtime catalog](https://github.com/langgenius/mosoo/blob/main/pkgs/runtime-catalog/catalog/runtime-catalog.jsonc) 包含：
+mosoo 是托管智能体 runtime，不是 Dify 模型供应商。插件只运行已发布的 Agent；runtime 与模型在 mosoo 中配置。当前公开 runtime 为：
 
-- Anthropic：`claude-fable-5`、`claude-sonnet-5`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-opus-4-5`、`claude-sonnet-4-6`、`claude-sonnet-4-5`、`claude-haiku-4-5`。
-- OpenAI：`gpt-5.6-sol`、`gpt-5.6-terra`、`gpt-5.6-luna`、`gpt-5.5`、`gpt-5.4`、`gpt-5.4-mini`、`gpt-5.3`、`gpt-5.2`。
-- DeepSeek、Gemini、Qwen、Kimi、Zhipu、MiniMax、OpenCode Zen：`deepseek-v4-pro`、`deepseek-v4-flash`、`gemini-3.5-flash`、`qwen3.7-plus`、`qwen3.6-plus`、`kimi-k2.6`、`kimi-k2.7-code`、`glm-4.7`、`glm-4.6`、`glm-5.2`、`MiniMax-M3`、`MiniMax-M2.7`、`minimax-m2.7`。
+- **Claude Agent SDK**：支持 Anthropic Claude 模型。
+- **OpenAI Runtime**：支持 OpenAI GPT 模型，以及实现 Responses API 的自定义 OpenAI-compatible 端点。
+- **OpenCode**：支持 Anthropic、OpenAI、DeepSeek、Gemini、Qwen、Kimi、Zhipu、MiniMax、OpenCode Zen 和自定义 OpenAI-compatible 模型。
 
-[AgentSky 的 harness 对比](https://agentsky.dev/use-cases/eval)提到 **Claude Code**、**Codex**、**Hermes**、**OpenClaw**。这里用于生态检索，不代表 mosoo 当前已可选择其中每一个。
-
-<details>
-<summary>ACP Registry 智能体索引（2026-08-11 核对，共 39 项）</summary>
-
-来源：[Agent Client Protocol Registry](https://agentclientprotocol.com/get-started/registry)。进入 Registry 不等于 mosoo 支持承诺。
-
-- Agoragentic (`agoragentic-acp`)、Amp (`amp-acp`)、Auggie CLI (`auggie`)、Autohand Code (`autohand`)、Claude Agent (`claude-acp`)、Cline (`cline`)、Codebuddy Code (`codebuddy-code`)。
-- Codex (`codex-acp`)、Cortex Code (`cortex-code`)、Corust Agent (`corust-agent`)、crow-cli (`crow-cli`)、Cursor (`cursor`)、DeepAgents (`deepagents`)、Devin (`devin`)。
-- DimCode (`dimcode`)、Dirac (`dirac`)、Factory Droid (`factory-droid`)、fast-agent (`fast-agent`)、Gemini CLI (`gemini`)、GitHub Copilot (`github-copilot`)、GitHub Copilot CLI (`github-copilot-cli`)。
-- GLM Agent (`glm-acp-agent`)、goose (`goose`)、Grok Build (`grok-build`)、Harn (`harn`)、Junie (`junie`)、Kilo (`kilo`)、Kimi CLI (`kimi`)。
-- Minion Code (`minion-code`)、Mistral Vibe (`mistral-vibe`)、Nova (`nova`)、OpenCode (`opencode`)、pi ACP (`pi-acp`)、Poolside (`poolside`)。
-- Qoder CLI (`qoder`)、Qwen Code (`qwen-code`)、siGit Code (`sigit`)、Stakpak (`stakpak`)、VT Code (`vtcode`)。
-
-</details>
+实际可用模型取决于 mosoo 中已配置的供应商密钥和当前 [mosoo runtime catalog](https://github.com/langgenius/mosoo/blob/main/pkgs/runtime-catalog/catalog/runtime-catalog.jsonc)。
 
 ## 安全、隐私与源码
 

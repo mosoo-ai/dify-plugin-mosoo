@@ -7,10 +7,10 @@ identity:
     ja_JP: mosoo managed agent
     pt_BR: mosoo managed agent
   description:
-    en_US: Delegate work to a published mosoo Agent running on Claude Agent SDK, OpenAI Runtime, OpenCode, or an ACP-backed runtime.
-    zh_Hans: 将任务委派给运行于 Claude Agent SDK、OpenAI Runtime、OpenCode 或 ACP 运行时的已发布 mosoo 智能体。
-    ja_JP: Claude Agent SDK、OpenAI Runtime、OpenCode、または ACP ランタイム上の公開済み mosoo Agent に作業を委任します。
-    pt_BR: Delegue trabalho a um mosoo Agent publicado em Claude Agent SDK, OpenAI Runtime, OpenCode ou runtime ACP.
+    en_US: Delegate work to a published mosoo Agent configured with Claude Agent SDK, OpenAI Runtime, or OpenCode.
+    zh_Hans: 将任务委派给使用 Claude Agent SDK、OpenAI Runtime 或 OpenCode 的已发布 mosoo 智能体。
+    ja_JP: Claude Agent SDK、OpenAI Runtime、または OpenCode で構成された公開済み mosoo Agent に作業を委任します。
+    pt_BR: Delegue trabalho a um mosoo Agent publicado com Claude Agent SDK, OpenAI Runtime ou OpenCode.
   icon: icon.svg
   tags:
     - productivity
