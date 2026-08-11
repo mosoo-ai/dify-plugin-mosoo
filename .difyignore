@@ -1,0 +1,13 @@
+.env
+.github/
+.gitignore
+.pytest_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+*.difypkg
+*.py[cod]
+LICENSE
+pyproject.toml
+tests/
+uv.lock
