@@ -122,85 +122,44 @@ class MosooClientTest(unittest.TestCase):
         self.assertNotIn(secret_message, str(raised.exception))
         self.assertIn("Update the Dify plugin credentials", str(raised.exception))
 
-    def test_readme_indexes_release_models_and_acp_agents(self) -> None:
+    def test_public_copy_matches_supported_mosoo_runtimes(self) -> None:
         root = Path(__file__).parents[1]
         readme = (root / "README.md").read_text()
-        model_ids = {
-            "MiniMax-M2.7",
-            "MiniMax-M3",
-            "claude-fable-5",
-            "claude-haiku-4-5",
-            "claude-opus-4-5",
-            "claude-opus-4-6",
-            "claude-opus-4-7",
-            "claude-sonnet-4-5",
-            "claude-sonnet-4-6",
-            "claude-sonnet-5",
-            "deepseek-v4-flash",
-            "deepseek-v4-pro",
-            "gemini-3.5-flash",
-            "glm-4.6",
-            "glm-4.7",
-            "glm-5.2",
-            "gpt-5.2",
-            "gpt-5.3",
-            "gpt-5.4",
-            "gpt-5.4-mini",
-            "gpt-5.5",
-            "gpt-5.6-luna",
-            "gpt-5.6-sol",
-            "gpt-5.6-terra",
-            "kimi-k2.6",
-            "kimi-k2.7-code",
-            "minimax-m2.7",
-            "qwen3.6-plus",
-            "qwen3.7-plus",
-        }
-        acp_ids = {
-            "agoragentic-acp",
-            "amp-acp",
-            "auggie",
-            "autohand",
-            "claude-acp",
-            "cline",
-            "codebuddy-code",
-            "codex-acp",
-            "cortex-code",
-            "corust-agent",
-            "crow-cli",
-            "cursor",
-            "deepagents",
-            "devin",
-            "dimcode",
-            "dirac",
-            "factory-droid",
-            "fast-agent",
-            "gemini",
-            "github-copilot",
-            "github-copilot-cli",
-            "glm-acp-agent",
-            "goose",
-            "grok-build",
-            "harn",
-            "junie",
-            "kilo",
-            "kimi",
-            "minion-code",
-            "mistral-vibe",
-            "nova",
-            "opencode",
-            "pi-acp",
-            "poolside",
-            "qoder",
-            "qwen-code",
-            "sigit",
-            "stakpak",
-            "vtcode",
-        }
-
-        self.assertEqual(
-            [item for item in model_ids | acp_ids if item not in readme], []
+        public_copy = "\n".join(
+            [
+                readme,
+                (root / "readme/README_zh_Hans.md").read_text(),
+                (root / "manifest.yaml").read_text(),
+                (root / "provider/mosoo.yaml").read_text(),
+            ]
         )
+
+        for runtime in ("Claude Agent SDK", "OpenAI Runtime", "OpenCode"):
+            self.assertIn(runtime, readme)
+
+        for provider in (
+            "Anthropic",
+            "OpenAI",
+            "DeepSeek",
+            "Gemini",
+            "Qwen",
+            "Kimi",
+            "Zhipu",
+            "MiniMax",
+            "OpenCode Zen",
+        ):
+            self.assertIn(provider, readme)
+
+        for unsupported_index in (
+            "ACP",
+            "AgentSky",
+            "Agent Client Protocol Registry",
+            "OpenClaw",
+            "agoragentic-acp",
+            "claude-fable-5",
+            "gpt-5.6-sol",
+        ):
+            self.assertNotIn(unsupported_index, public_copy)
 
 
 if __name__ == "__main__":

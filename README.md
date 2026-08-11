@@ -37,29 +37,15 @@ Run one published [mosoo](https://mosoo.ai) Agent as a native tool in Dify Agent
 
 `timeout_seconds` defaults to 120 (10-240). The tool maps the Dify runtime user to mosoo `userId` and refuses to continue a Thread owned by another Dify user. A `waiting_input` result means the Agent needs a permission or input resolved in mosoo; then call again with `thread_id` only.
 
-## Runtime and model search index
+## Supported runtimes
 
-mosoo provides a normalized runtime contract rather than a Dify model provider. Current public runtime choices are **Claude Agent SDK**, **OpenAI Runtime**, and **OpenCode** (ACP fallback). The current [mosoo runtime catalog](https://github.com/langgenius/mosoo/blob/main/pkgs/runtime-catalog/catalog/runtime-catalog.jsonc) contains:
+mosoo is a managed Agent runtime, not a Dify model provider. This plugin runs an already-published Agent; its runtime and model are configured in mosoo. Current public runtime choices are:
 
-- Anthropic: `claude-fable-5`, `claude-sonnet-5`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-opus-4-5`, `claude-sonnet-4-6`, `claude-sonnet-4-5`, `claude-haiku-4-5`.
-- OpenAI: `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-5.5`, `gpt-5.4`, `gpt-5.4-mini`, `gpt-5.3`, `gpt-5.2`.
-- DeepSeek, Gemini, Qwen, Kimi, Zhipu, MiniMax, OpenCode Zen: `deepseek-v4-pro`, `deepseek-v4-flash`, `gemini-3.5-flash`, `qwen3.7-plus`, `qwen3.6-plus`, `kimi-k2.6`, `kimi-k2.7-code`, `glm-4.7`, `glm-4.6`, `glm-5.2`, `MiniMax-M3`, `MiniMax-M2.7`, `minimax-m2.7`.
+- **Claude Agent SDK** for Anthropic Claude models.
+- **OpenAI Runtime** for OpenAI GPT models and custom OpenAI-compatible endpoints that implement the Responses API.
+- **OpenCode** for Anthropic, OpenAI, DeepSeek, Gemini, Qwen, Kimi, Zhipu, MiniMax, OpenCode Zen, and custom OpenAI-compatible models.
 
-[AgentSky's harness comparison](https://agentsky.dev/use-cases/eval) mentions **Claude Code**, **Codex**, **Hermes**, and **OpenClaw**. They are included here for ecosystem discovery, not as a claim that every one is currently selectable in mosoo.
-
-<details>
-<summary>ACP Registry agent index (39 entries checked August 11, 2026)</summary>
-
-Source: [Agent Client Protocol Registry](https://agentclientprotocol.com/get-started/registry). Registry presence is not a mosoo support promise.
-
-- Agoragentic (`agoragentic-acp`), Amp (`amp-acp`), Auggie CLI (`auggie`), Autohand Code (`autohand`), Claude Agent (`claude-acp`), Cline (`cline`), Codebuddy Code (`codebuddy-code`).
-- Codex (`codex-acp`), Cortex Code (`cortex-code`), Corust Agent (`corust-agent`), crow-cli (`crow-cli`), Cursor (`cursor`), DeepAgents (`deepagents`), Devin (`devin`).
-- DimCode (`dimcode`), Dirac (`dirac`), Factory Droid (`factory-droid`), fast-agent (`fast-agent`), Gemini CLI (`gemini`), GitHub Copilot (`github-copilot`), GitHub Copilot CLI (`github-copilot-cli`).
-- GLM Agent (`glm-acp-agent`), goose (`goose`), Grok Build (`grok-build`), Harn (`harn`), Junie (`junie`), Kilo (`kilo`), Kimi CLI (`kimi`).
-- Minion Code (`minion-code`), Mistral Vibe (`mistral-vibe`), Nova (`nova`), OpenCode (`opencode`), pi ACP (`pi-acp`), Poolside (`poolside`).
-- Qoder CLI (`qoder`), Qwen Code (`qwen-code`), siGit Code (`sigit`), Stakpak (`stakpak`), VT Code (`vtcode`).
-
-</details>
+Exact model availability depends on the provider keys configured in mosoo and the current [mosoo runtime catalog](https://github.com/langgenius/mosoo/blob/main/pkgs/runtime-catalog/catalog/runtime-catalog.jsonc).
 
 ## Security, privacy, and source
 
